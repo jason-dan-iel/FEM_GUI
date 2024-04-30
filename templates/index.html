@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2D Structure</title>
+    <link rel="stylesheet" type="text/css" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="">
+      <svg width="1000" height="1000" id="graph">
+        <g id="gridlines">
+          {% for y in range(50, 951, 50) %}
+          <line class="grid-line" x1="0" y1="{{ y }}" x2="1000" y2="{{ y }}" />
+          {% endfor %} {% for x in range(50, 951, 50) %}
+          <line class="grid-line" x1="{{ x }}" y1="0" x2="{{ x }}" y2="1000" />
+          {% endfor %}
+        </g>
+
+        <line
+          x1="0"
+          y1="500"
+          x2="1000"
+          y2="500"
+          stroke="black"
+          stroke-width="2"
+        />
+        <text x="990" y="515" class="coordinate-label">X</text>
+
+        <line
+          x1="500"
+          y1="0"
+          x2="500"
+          y2="1000"
+          stroke="black"
+          stroke-width="2"
+        />
+        <text x="490" y="10" class="coordinate-label">Y</text>
+        <circle cx="500" cy="500" r="3" fill="red" />
+        <g id="nodes"></g>
+        <g id="arrows"></g>
+        <g id="members"></g>
+        <g id="loads"></g>
+        <g id="supports"></g>
+      </svg>
+    </div>
+    <div id="container">
+      <div id="cursor-coordinates"></div>
+      <div class="optionstable">
+        <div id="options">
+          <h2>Options</h2>
+          <button onclick="selectNode()">Node</button>
+          <button onclick="selectMember()">Member</button>
+          <button onclick="saveData()">Save Data</button>
+          <button onclick="computeData()">Compute</button>
+        </div>
+      </div>
+      <div class="nodetable">
+        <div id="node-data">
+          <h2>Node Data</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Node</th>
+                <th>X (m)</th>
+                <th>Y (m)</th>
+                <th>Fx (kN)</th>
+                <th>Fy (kN)</th>
+                <th>Mz (kN-m)</th>
+                <th>Sx</th>
+                <th>Sy</th>
+                <th>Support Type</th>
+              </tr>
+            </thead>
+            <tbody id="node-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="membertable">
+        <div id="member-data">
+          <h2>Member Data</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Member</th>
+                <th>Node 1</th>
+                <th>Node 2</th>
+                <th>Load Type</th>
+                <th>w1</th>
+                <th>w2</th>
+                <th>a1</th>
+                <th>a2</th>
+              </tr>
+            </thead>
+            <tbody id="member-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="propertiestable">
+        <div id="properties">
+          <h2>Properties</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>A</th>
+                <th>E</th>
+                <th>I</th>
+              </tr>
+            </thead>
+            <tbody id="properties-table-body">
+              <tr>
+                <td><input type="number" id="input-A" value="0" /></td>
+                <td><input type="number" id="input-E" value="0" /></td>
+                <td><input type="number" id="input-I" value="0" /></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,92 @@
+svg {
+  border: 1px solid black;
+  margin: 20px auto;
+  overflow: visible;
+  display: block;
+}
+
+.grid-line {
+  stroke: lightgray;
+  stroke-width: 1;
+}
+
+.coordinate-label {
+  font-size: 10px;
+  text-anchor: middle;
+  alignment-baseline: central;
+}
+
+.node {
+  fill: lightblue;
+  stroke: black;
+  stroke-width: 2;
+  cursor: pointer;
+}
+
+.node-line {
+  stroke: black;
+  stroke-width: 2;
+}
+
+.loading {
+  fill: yellow;
+  stroke: black;
+  stroke-width: 1;
+}
+
+.support {
+  fill: green;
+  stroke: black;
+  stroke-width: 1;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#node-data,
+#member-data,
+#properties,
+#options {
+  margin-top: 20px;
+  margin-right: 20px;
+  display: block; /* Added to ensure tables appear below the graph */
+}
+
+#options {
+  margin-right: 0;
+}
+
+#node-data,
+#member-data,
+#properties {
+  flex-basis: 300px;
+}
+
+table {
+  width: 100%;
+}
+
+#node-data th,
+#node-data td,
+#member-data th,
+#member-data td,
+#properties th,
+#properties td {
+  padding: 5px 10px;
+  border: 1px solid black;
+  text-align: center;
+}
+
+#node-data th,
+#member-data th,
+#properties th {
+  background-color: lightgray;
+}
+
+.nodetable, .membertable, .propertiestable, .optionstable{
+  width: 1000px;
+}
